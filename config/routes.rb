@@ -1,7 +1,10 @@
 Rails.application.routes.draw do 
-  resources :todos, only: :index do
+  get 'completeds/create'
+  resources :todos do
   resources :completeds, only: :create
   end
+
+  resources :completeds, only: :index
 
   root to: "todos#index"
   devise_for :users
